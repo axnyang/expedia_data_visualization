@@ -59,7 +59,7 @@ lon_mobile_array_no_book = []
 
 for line in csv_lines[1:-1]:
     line = line.split('\t')
-    # split the lines into mobile and not mobile
+    # Split the lines into mobile and not mobile
     # 1 if on mobile, 0 otherwise
     if '1' in line[mobile_index].replace('"', ''):
         if '1' in line[booking_index].replace('"', ''):
@@ -107,22 +107,25 @@ source_mobile2 = ColumnDataSource(
 )
 
 # NON MOBILE
-# BLUE
-#pink FF72A8
+# pink FF72A8
 circle1 = Circle(x="lon", y="lat", size=10, fill_color="#FF72A8", fill_alpha=0.3, line_color=None)
 # MOBILE
-# GREEN
 # blue 599ACC
 circle2 = Circle(x="lon", y="lat", size=10, fill_color="#599ACC", fill_alpha=0.3, line_color=None)
 
+# Adding plot point circles to booked map
 plot1.add_glyph(source_non_mobile1, circle1)
 plot1.add_glyph(source_mobile1, circle2)
 
+# Adding plot point circles to not booked map
 plot2.add_glyph(source_non_mobile2, circle1)
 plot2.add_glyph(source_mobile2, circle2)
 
+# Adding interactive tools to map
 plot1.add_tools(PanTool(), WheelZoomTool(), BoxSelectTool())
 plot2.add_tools(PanTool(), WheelZoomTool(), BoxSelectTool())
+
+# Writing to the output HTML file and opening the HTML file in browser
 output_file("gmap_plot.html")
 show(plot1)
 show(plot2)
