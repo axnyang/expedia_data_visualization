@@ -108,10 +108,10 @@ source_mobile2 = ColumnDataSource(
 
 # NON MOBILE
 # pink FF72A8
-circle1 = Circle(x="lon", y="lat", size=10, fill_color="#FF72A8", fill_alpha=0.3, line_color=None)
+circle1 = Circle(x="lon", y="lat", size=10, fill_color="#FF72A8", fill_alpha=0.25, line_color=None)
 # MOBILE
 # blue 599ACC
-circle2 = Circle(x="lon", y="lat", size=10, fill_color="#599ACC", fill_alpha=0.3, line_color=None)
+circle2 = Circle(x="lon", y="lat", size=10, fill_color="#599ACC", fill_alpha=0.25, line_color=None)
 
 # Adding plot point circles to booked map
 plot1.add_glyph(source_non_mobile1, circle1)
